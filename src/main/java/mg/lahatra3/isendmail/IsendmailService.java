@@ -5,6 +5,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -28,6 +30,19 @@ public class IsendmailService {
             log.info("Mail sending successfully...");
         } catch(Exception exception) {
             log.error("Failed sending mail...", exception);
+        }
+    }
+
+    public void sendEmailFromHtmlTemplate(String recipient, String subject) throws MessagingException {
+        
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            message.setRecipients(MimeMessage.RecipientType.TO, recipient);
+            message.setSubject(subject);
+            
+            message.setContent(null);
+        } catch(Exception exception) {
+
         }
     }
 }
