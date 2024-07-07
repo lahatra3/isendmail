@@ -19,9 +19,15 @@ public class IsendmailApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		isendmailService.sendSimpleMail(
-			"", 
+			"lahatrap20.aps2a@gmail.com", 
 			"Sending mail [Spring boot]", 
-			"Hello lahatra3..."
+			"Hello lahatra3 ..."
+		);
+
+		isendmailService.sendEmailFromHtmlTemplate(
+			"lahatrap20.aps2a@gmail.com", 
+			"Sending mail [Spring boot]",
+			"Hello lahatra3 ..."
 		);
 	}
 }
