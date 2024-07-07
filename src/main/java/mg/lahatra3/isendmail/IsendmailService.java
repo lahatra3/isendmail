@@ -3,6 +3,7 @@ package mg.lahatra3.isendmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.MessagingException;
@@ -18,6 +19,7 @@ public class IsendmailService {
     private JavaMailSender javaMailSender;
 
 
+    @Async
     public void sendSimpleMail(String recipient, String subject, String body) {
 
         try {
@@ -36,6 +38,7 @@ public class IsendmailService {
         }
     }
 
+    @Async
     public void sendEmailFromHtmlTemplate(String recipient, String subject, String body) throws MessagingException {
         
         try {
