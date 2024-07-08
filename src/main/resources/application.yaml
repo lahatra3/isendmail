@@ -2,3 +2,13 @@ spring:
     application.name: isendmail
     main.web-application-type: none
     config.import: optional:file:local/.env[.properties]
+    mail:
+        host: ${EMAIL_SERVER_HOST}
+        port: ${EMAIL_SERVER_PORT}
+        usernAme: ${EMAIL_USERNAME}
+        password: ${EMAIL_PASSWORD}
+        properties.mail.smtp.auth: true
+        properties.mail.smtp.starttls.enable: true
+    
+
+        
